@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    jcenter()
+    maven {
+        url 'http://packages.confluent.io/maven/'
+    }
+}
+
+dependencies {
+
+    compile 'io.confluent:kafka-streams-avro-serde:5.1.2'
+    compile 'org.apache.kafka:kafka-streams:2.0.1'
+    compile 'org.apache.avro:avro:1.8.2'
+    compile 'org.slf4j:slf4j-log4j12:1.7.25'
+
+    compileOnly 'org.projectlombok:lombok:1.18.6'
+    annotationProcessor 'org.projectlombok:lombok:1.18.6'
+
+    implementation 'io.vavr:vavr:0.10.0'
+
+    // Use JUnit test framework
+    testImplementation 'junit:junit:4.12'
+}
+
+mainClassName = 'kafka.deduplication.App'
